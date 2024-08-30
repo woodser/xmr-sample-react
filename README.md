@@ -1,3 +1,16 @@
+# Description
+
+This project is a sample React app using [create-react-app](https://github.com/facebook/create-react-app) and [monero-ts](https://github.com/woodser/monero-ts).
+
+## How to Run in a Browser
+
+1. `git clone https://github.com/woodser/xmr-sample-react.git`
+2. `cd xmr-sample-react`
+3. `npm install`
+4. `npm start`
+5. Access [http://localhost:3000](http://localhost:3000) in a browser.
+6. See the XMR output in the server console.
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
