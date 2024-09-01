@@ -1,4 +1,21 @@
 const webpack = require("webpack");
+const fs = require("fs");
+
+fs.mkdirSync("public", { recursive: true });
+[
+  {
+    src: "node_modules/monero-ts/dist/monero_wallet_keys.wasm",
+    dest: "public/monero_wallet_keys.wasm",
+  },
+  {
+    src: "node_modules/monero-ts/dist/monero_wallet_full.wasm",
+    dest: "public/monero_wallet_full.wasm",
+  },
+  {
+    src: "node_modules/monero-ts/dist/monero_web_worker.js",
+    dest: "public/monero_web_worker.js",
+  },
+].forEach(({ src, dest }) => fs.copyFileSync(src, dest))
 
 module.exports = function override(config) {
   const fallback = config.resolve.fallback || {};
@@ -32,9 +49,24 @@ module.exports = function override(config) {
       fullySpecified: false,
     },
   });
+  const fileLoaderRule = getFileLoaderRule(config.module.rules);
+  fileLoaderRule.exclude.push(/\.cjs$/);
   config.externals = {
     ...config.externals,
     child_process: 'child_process'
   };
   return config;
 };
+
+function getFileLoaderRule(rules) {
+  for(const rule of rules) {
+      if("oneOf" in rule) {
+          const found = getFileLoaderRule(rule.oneOf);
+          if(found) {
+              return found;
+          }
+      } else if(rule.test === undefined && rule.type === 'asset/resource') {
+          return rule;
+      }
+  }
+}
