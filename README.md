@@ -8,7 +8,7 @@ This project is a sample React app using [create-react-app](https://github.com/f
 2. `cd xmr-sample-react`
 3. `npm install`
 4. `npm start`
-5. Access [http://localhost:3000](http://localhost:3000) in a browser.
+5. Access [http://localhost:8080](http://localhost:8080) in a browser.
 6. See the XMR output in the server console.
 
 # Getting Started with Create React App
@@ -22,7 +22,7 @@ In the project directory, you can run:
 ### `npm start`
 
 Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Open [http://localhost:8080](http://localhost:8080) to view it in the browser.
 
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
