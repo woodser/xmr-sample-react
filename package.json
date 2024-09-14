@@ -10,7 +10,7 @@
     "@types/node": "^16.18.106",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",
-    "monero-ts": "^0.10.3",
+    "monero-ts": "github:mainnet-pat/monero-ts#23fe3bb62b618a8284a2fa3e3786617e42dfb104",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-scripts": "5.0.1",

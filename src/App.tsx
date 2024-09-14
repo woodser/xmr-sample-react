@@ -4,6 +4,8 @@ import './App.css';
 import assert from "assert";
 import moneroTs from "monero-ts";
 
+moneroTs.LibraryUtils.setWorkerLoader(() => new Worker(new URL("monero-ts/dist/monero.worker.js", import.meta.url)));
+
 function App() {
 
   let sampleCodeRun = false;

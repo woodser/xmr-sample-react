@@ -1,21 +1,4 @@
 const webpack = require("webpack");
-const fs = require("fs");
-
-fs.mkdirSync("public", { recursive: true });
-[
-  {
-    src: "node_modules/monero-ts/dist/monero_wallet_keys.wasm",
-    dest: "public/monero_wallet_keys.wasm",
-  },
-  {
-    src: "node_modules/monero-ts/dist/monero_wallet_full.wasm",
-    dest: "public/monero_wallet_full.wasm",
-  },
-  {
-    src: "node_modules/monero-ts/dist/monero_web_worker.js",
-    dest: "public/monero_web_worker.js",
-  },
-].forEach(({ src, dest }) => fs.copyFileSync(src, dest))
 
 module.exports = function override(config) {
   const fallback = config.resolve.fallback || {};
