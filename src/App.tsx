@@ -4,6 +4,9 @@ import './App.css';
 import assert from "assert";
 import moneroTs from "monero-ts";
 
+// set worker loader if not copied to public directory
+//moneroTs.LibraryUtils.setWorkerLoader(() => new Worker(new URL("monero-ts/dist/monero.worker.js", import.meta.url)));
+
 function App() {
 
   let sampleCodeRun = false;
@@ -54,7 +57,6 @@ function App() {
     console.log("Creating wallet from seed phrase");
     let walletFull = await moneroTs.createWalletFull({
       password: "supersecretpassword123",
-      proxyToWorker: false,
       networkType: moneroTs.MoneroNetworkType.TESTNET,
       seed: "silk mocked cucumber lettuce hope adrenalin aching lush roles fuel revamp baptism wrist long tender teardrop midst pastry pigment equip frying inbound pinched ravine frying",
       restoreHeight: 171,
