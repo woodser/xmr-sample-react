@@ -46,8 +46,8 @@ function App() {
 
     // connect to mainnet daemon with worker proxy
     let daemon2 = await moneroTs.connectToDaemonRpc({server: "http://xmr-node.cakewallet.com:18081", proxyToWorker: true});
-    console.log("Daemon height 2: " + await daemon2.getHeight());
     let height = await daemon2.getHeight();            // 1523651
+    console.log("Daemon height 2: " + height);
     let feeEstimate = await daemon2.getFeeEstimate();  // 1014313512
     let txsInPool = await daemon2.getTxPool();         // get transactions in the pool
     
